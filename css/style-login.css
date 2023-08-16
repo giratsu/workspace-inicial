@@ -11,7 +11,7 @@
     
     justify-content: center;
     height: 100vh;
-    background-image: url(img/ventas.jpg);
+    background-image: url(../img/ventas.jpg);
     background-size: cover;
   }
 
@@ -109,4 +109,9 @@
   .hide {
     position: absolute;
     transform: translateY(-300%);
+  }
+
+  .bx
+  {
+    margin-right: 8px;
   }

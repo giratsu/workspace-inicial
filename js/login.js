@@ -11,7 +11,7 @@ btnSignUp.addEventListener("click", e => {
     
 
     formLogin.classList.add("hide");
-    formRegister.classList.remove("hide")
+    formRegister.classList.remove("hide");
 });
 
 btnSignIn.addEventListener("click", e => {
@@ -22,17 +22,15 @@ btnSignIn.addEventListener("click", e => {
 
 
 loginForm.addEventListener("submit", e => {
-    const user = document.getElementById("usuario").value;
-    
+    e.preventDefault();
 
-    if(user !== ""){
-        estaLogeado = true;
-    if(estaLogeado){
-        sessionStorage.setItem("estado", estaLogeado);
+    const user = document.getElementById("usuario").value;
+    let logged = (user!=null && user!="");
+    sessionStorage.setItem("logged", logged);
+
+    if(logged){
         window.location.href = "./index.html";
-    }
     }else{
         alert("Completa el Usuario");
     }
-    
 });
