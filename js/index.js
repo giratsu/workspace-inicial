@@ -1,4 +1,9 @@
 document.addEventListener("DOMContentLoaded", function(){
+    if(sessionStorage.getItem("username") == null)
+    {
+        window.location = "login - copia.html";
+    }
+
     document.getElementById("autos").addEventListener("click", function() {
         localStorage.setItem("catID", 101);
         window.location = "products.html"
