@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", function(){
     if(sessionStorage.getItem("username") == null)
     {
-        window.location = "login - copia.html";
+        window.location = "login.html";
     }
 
     document.getElementById("autos").addEventListener("click", function() {
