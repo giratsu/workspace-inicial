@@ -11,5 +11,10 @@ function createUser(username, nombre, apellido, email, password, pais, ciudad, d
         domicilio
     }
 
+    return userdata;
+}
+
+function saveUser(user)
+{
     sessionStorage.setItem("userdata", userdata);
 }
