@@ -10,68 +10,104 @@
   <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/style-login.css" rel="stylesheet">
+  <script src="js/login.js"></script>
+  <script src="js/userdata.js"></script>
 </head>
 
 <body>
   <main class="imgFondo">
-    <div class="container-form register hide">
-      <div class="inf">
-        <div class="informacion">
+    
+    <div class="main-container register hide">
+      <div class="welcome-section">
+        <div class="welcome-content">
         <h2>Bienvenido</h2>
         <p> Para unirte por favor Inicia Sesión con tus datos</p>
-        <input type="button" value="Iniciar sesión" id="sign-in">
+        <input type="button" value="Iniciar sesión" id="sign-in-switch-button">
        </div>
       </div>
-      <div class="form-information">
-      <div class="form-info-childs">
-        <h2>Crear una cuenta</h2>
-        <form class="form">
-          <label>
-            <i class='bx bx-user'></i>
-            <input type="text" placeholder="Nombre Completo">
-          </label>
-          <label>
-            <i class='bx bx-envelope' ></i>
-            <input type="email" placeholder="Correo electronico">
-          </label>
-         <label > 
-          <i class='bx bx-lock-alt' ></i>
-          <input type="password" placeholder="Contraseña ">
-          </label>
-          <input type="submit" value="Registrarte">
-        </form>
-         </div>
-      </div>
-   </div>
+      
+      <div class="form-section">
+          <form class="form" id="register-form">
+            <h2>Crear una cuenta</h2>
 
-   <div class="container-form login " >
-    <div class="inf">
-      <div class="informacion">
+            <label>
+              <i class='bx bx-user'></i>
+              <input type="text" id="register-username-input" placeholder="Usuario">
+            </label>
+
+            <label>
+              <i class='bx bx-user'></i>
+              <input type="text" id="register-name-input" placeholder="Nombre">
+            </label>
+  
+            <label>
+              <i class='bx bx-user'></i>
+              <input type="text" id="register-surname-input" placeholder="Apellido">
+            </label>
+  
+            <label>
+              <i class='bx bx-envelope' ></i>
+              <input type="email" id="register-email-input" placeholder="Correo electronico">
+            </label>
+
+            <label>
+              <i class='bx bx-phone' ></i>
+              <input type="text" id="register-phone-input" placeholder="Numero de teléfono">
+            </label>
+  
+           <label > 
+            <i class='bx bx-lock-alt' ></i>
+            <input type="password" id="register-password-input" placeholder="Contraseña">
+            </label>
+  
+            <label>
+              <i class='bx bx-flag'></i>
+              <input type="text" id="register-country-input" placeholder="País">
+            </label>
+  
+            <label>
+              <i class='bx bx-buildings'></i>
+              <input type="text" id="register-city-input" placeholder="Ciudad">
+            </label>
+  
+            <label>
+              <i class='bx bx-map-pin'></i>
+              <input type="text" id="register-address-input" placeholder="Domicilio">
+            </label>
+
+            <input type="submit" value="Registrarte">
+          </form>
+      </div>
+    </div>
+
+   <div class="main-container login">
+    <div class="welcome-section">
+      <div class="welcome-content">
       <h2>Bienvenido Nuevamente</h2>
       <p> Para unirte por favor Inicia Sesión con tus datos</p>
-      <input type="button" value="Registrarse" id="sign-up">
+      <input type="button" value="Registrarse" id="sign-up-switch-button">
      </div>
     </div>
-    <div class="form-information">
-    <div class="form-info-childs">
-      <h2>Iniciar Sesión</h2>
-      <form id="loginForm" class="form">
-        <label>
-          <i class='bx bx-envelope' ></i>
-          <input type="email" id="usuario" placeholder="Correo electronico">
-        </label>
-       <label > 
-        <i class='bx bx-lock-alt' ></i>
-        <input type="password" placeholder="Contraseña ">
-        </label>
-        <input type="submit" id="btn-login" value="Iniciar Sesión">
-      </form>
-       </div>
-      </div>
+
+    <div class="form-section">
+        <form id="login-form" class="form">
+          <h2>Iniciar Sesión</h2>
+
+          <label>
+            <i class='bx bx-envelope' ></i>
+            <input type="email" id="login-user-input" placeholder="Correo electronico">
+          </label>
+  
+         <label > 
+          <i class='bx bx-lock-alt' ></i>
+          <input type="password" id="login-password-input" placeholder="Contraseña">
+          </label>
+  
+          <input type="submit" value="Iniciar Sesión">
+        </form>
+    </div>
  </div>
   </main>
-
-    
 
   <footer class="text-muted">
     <div class="container">
@@ -81,7 +117,6 @@
       <p>Este sitio forma parte de <a href="https://jovenesaprogramar.edu.uy/" target="_blank">Jovenes a Programar</a></p>
     </div>
   </footer>
-  <script src="./js/login.js"></script>
 </body>
 
 </html>

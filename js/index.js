@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function(){
-    if(sessionStorage.getItem("username") == null)
+    if(sessionStorage.getItem("logged") == null)
     {
         window.location = "login.html";
     }

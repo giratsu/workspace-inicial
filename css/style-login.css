@@ -1,117 +1,115 @@
 * {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-    font-family: 'Bricolage Grotesque', sans-serif;
-  }
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Bricolage Grotesque', sans-serif;
+}
 
-  .imgFondo {
-    display: flex;
-    align-items: center;
-    
-    justify-content: center;
-    height: 100vh;
-    background-image: url(../img/ventas.jpg);
-    background-size: cover;
-  }
+.imgFondo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-image: url("../img/ventas.jpg");
+  background-size: cover;
+}
 
-  .container-form {
-    display: flex;
-    border-radius: 20px;
-    box-shadow: 0 5px 7px rgba(0,0, 0, .1) ;
-    height: 500px;
-    max-width: 900px ;
-    transition: all 1s ease;
-    margin: 10px;
-  }
+.main-container {
+  display: flex;
+  border-radius: 20px;
+  box-shadow: 0 5px 7px rgba(0,0, 0, .1) ;
+  min-height: 500px;
+  max-width: 900px ;
+  transition: transform 1s ease;
+  margin: 10px;
+}
 
-  .inf {
-    width: 40%;
-    display: flex;
-    align-items: center;
-    text-align: center;
-    background-color:  seashell;
-    border-top-left-radius: 20px;
-    border-bottom-left-radius: 20px; 
-  }
+.welcome-section {
+  width: 40%;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  background-color:  seashell;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px; 
+}
 
-  .informacion{
-    width: 100%;
-    padding: 0 30px;
-  }
+.welcome-content{
+  width: 100%;
+  padding: 0 30px;
+}
 
-  .informacion h2{
-    font-size: 2.5rem;
-  }
+.welcome-content h2{
+  font-size: 2.5rem;
+}
 
-  .informacion input{
-    background-color: transparent;
-    outline: none;
-    border: solid 2px rgb(19, 17, 53);
-    border-radius: 20px;
-    padding: 10px 10px;
-    color: rgb(19, 17, 53);
-    transition: background-color .2s ease; 
-  }
+h2
+{
+  margin-bottom: 1rem;
+}
 
-  .informacion input:hover{
-    background-color: #dad1d1;
-    border: none;
-    color: #fff;
-  }
-/* anima y cambia el color del btn Iniciar sesion */
+.welcome-content p{
+  margin: 0px;
+}
 
-.form-information{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    width: 60%;
-    background-color: rgb(207, 238, 238);
-    border-top-right-radius: 20px;
-    border-bottom-right-radius: 20px;
+.main-container input[type="submit"], .main-container input[type="button"]{
+  background-color: transparent;
+  outline: none;
+  border: solid 2px rgb(19, 17, 53);
+  margin-top: 1rem;
+  border-radius: 20px;
+  padding: 10px 10px;
+  color: rgb(19, 17, 53);
+  
+  transition: border .2s ease, background-color .2s ease, color .2s ease;
+}
+
+.main-container input[type="submit"]:hover, .main-container input[type="button"]:hover{
+  background-color: #888f91;
+  border: solid 2px transparent;
+  color: #fff;
+
+  transition: border .2s ease, background-color .2s ease, color .2s ease; 
+}
+/* anima y cambia el color de los botones */
+
+.form-section{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 30px;
+  width: 60%;
+  background-color: rgb(207, 238, 238);
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
 }
 
 .form label{
-    display: flex;
-    align-items: center;
-    margin-bottom: 5px;
-    border-radius: 20px;
-    padding: 0 20px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 5px;
+  border-radius: 20px;
+  padding: 0 20px;
 } 
 
 .form label input{
-    width: 100%;
-    padding: 10px;
-    background-color: aliceblue;
-    border: none;
-    outline: none;
-    border-radius: 20px;
-    color: rgb(24, 18, 56);
+  width: 100%;
+  padding: 10px;
+  background-color: aliceblue;
+  border: none;
+  outline: none;
+  border-radius: 20px;
+  color: rgb(24, 18, 56);
 }
 
-.form input[type="submit"]{
-    background-color: transparent;
-    outline: none;
-    border: solid 2px rgb(19, 17, 53);
-    border-radius: 20px;
-    padding: 10px 10px;
-    color: rgb(19, 17, 53);
-    transition: background-color .2s ease; 
-  }
+.hide {
+  position: absolute;
+  transform: translateY(-300%);
+}
 
-  .form input[type="submit"]:hover{
-    background-color: #dad1d1;
-    border: none;
-    color: #fff;
-  }
-
-  .hide {
-    position: absolute;
-    transform: translateY(-300%);
-  }
-
-  .bx
-  {
-    margin-right: 8px;
-  }
+.bx
+{
+  margin-right: 8px;
+}
