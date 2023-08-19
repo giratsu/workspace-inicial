@@ -65,20 +65,14 @@ document.addEventListener("DOMContentLoaded", ()=>{
         
         /*elementos del formulario de registro*/
         const usernameInput = document.getElementById("register-username-input").value;
-        const nameInput = document.getElementById("register-name-input").value;
-        const surnameInput = document.getElementById("register-surname-input").value;
         const emailInput = document.getElementById("register-email-input").value;
-        const phoneInput = document.getElementById("register-phone-input").value;
         const passwordInput = document.getElementById("register-password-input").value;
-        const countryInput = document.getElementById("register-country-input").value;
-        const cityInput = document.getElementById("register-city-input").value;
-        const addressInput = document.getElementById("register-address-input").value;
         
         validInfo = true; /* TODO: checkear la información para ver si es válida, por ahora es siempre true */
         
         if(validInfo)
         {
-            let user = createUser(usernameInput, nameInput, surnameInput, emailInput, phoneInput, passwordInput, countryInput, cityInput, addressInput);
+            let user = createUser(usernameInput, null, null, emailInput, null, passwordInput, null, null, null);
             saveUser(user);
             ShowLoginForm();
             alert("Cuenta creada exitosamente!");
