@@ -41,22 +41,28 @@ document.addEventListener("DOMContentLoaded", ()=>{
         
         let user = JSON.parse(localStorage.getItem("userdata"));
         
-        const writedEmail = loginEmailInput;
-        const targetEmail = user.email;
-        
-        const writedPassword = loginPasswordInput;
-        const targetPassword = user.password;
-        
-        if(targetEmail === writedEmail){
-            if(targetPassword === writedPassword)
-            {
-                window.location.href = "./index.html";
-                sessionStorage.setItem("loggedUser", user);
+        if(user != null)
+        {
+            const writedEmail = loginEmailInput;
+            const targetEmail = user.email;
+            
+            const writedPassword = loginPasswordInput;
+            const targetPassword = user.password;
+            
+            if(targetEmail === writedEmail){
+                if(targetPassword === writedPassword)
+                {
+                    window.location.href = "./index.html";
+                    sessionStorage.setItem("loggedUser", user);
+                }else{
+                    alert("Contraseña incorrecta");
+                }
             }else{
-                alert("Contraseña incorrecta");
+                alert("Email incorrecto");
             }
         }else{
-            alert("Email incorrecto");
+            alert("Esta cuenta no existe, Por favor primero registrate.")
+            ShowRegisterForm();
         }
     });
     
