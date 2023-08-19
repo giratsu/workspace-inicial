@@ -13,15 +13,22 @@ document.addEventListener("DOMContentLoaded", ()=>{
     const SignInSwitchBtn = document.getElementById("sign-in-switch-button");
     const SignUpSwitchBtn = document.getElementById("sign-up-switch-button");
     
-    SignUpSwitchBtn.addEventListener("click", e => {
+    function ShowLoginForm()
+    {
+        registerWindow.classList.add("hide");
+        loginWindow.classList.remove("hide");
+    }
+    function ShowRegisterForm()
+    {
         loginWindow.classList.add("hide");
         registerWindow.classList.remove("hide");
+    }
+    SignUpSwitchBtn.addEventListener("click", e => {
+        ShowRegisterForm();
     });
     
     SignInSwitchBtn.addEventListener("click", e => {
-        
-        registerWindow.classList.add("hide");
-        loginWindow.classList.remove("hide")
+        ShowLoginForm();
     });
     
     
@@ -44,7 +51,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
             if(targetPassword === writedPassword)
             {
                 window.location.href = "./index.html";
-                sessionStorage.setItem("logged", true);
+                sessionStorage.setItem("loggedUser", user);
             }else{
                 alert("Contraseña incorrecta");
             }
@@ -73,6 +80,8 @@ document.addEventListener("DOMContentLoaded", ()=>{
         {
             let user = createUser(usernameInput, nameInput, surnameInput, emailInput, phoneInput, passwordInput, countryInput, cityInput, addressInput);
             saveUser(user);
+            ShowLoginForm();
+            alert("Cuenta creada exitosamente!");
         }
     })
 })
