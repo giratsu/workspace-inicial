@@ -263,7 +263,7 @@ a.custom-card:hover {
 
 .product-object:hover
 {
-  background-color: rgb(230, 230, 230);
+  background-color: rgb(215, 215, 215);
   transition: background-color 150ms;
 }
 
