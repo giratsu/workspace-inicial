@@ -28,7 +28,7 @@ let productContainer = document.getElementById("product-container");
 /* Se hace un fetch a la URL de la API. 
 101 corresponde a la categoría de autos */
 
-fetch(PRODUCTS_URL+"101.json")
+fetch(PRODUCTS_URL+"101.json") /* https://japceibal.github.io/emercado-api/cats_products/101.json */
 .then(response => response.json())
 .then(data => {
   let productArray = data.products;
