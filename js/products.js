@@ -1,7 +1,7 @@
 /* Esta funcion nos devuelve una cadena de texto representando la estructura html que representa un producto.
 Lo que devuele esta función es lo que escribiríamos dentro del contenedor para crear un elemento producto.
 La funcion toma como parametro los datos que se deben tomar de la API. */
-function GetProductCard(image, name, description, soldCount)
+function GetProductCard(image, name, cost, description, soldCount)
 {
   result = `
   <div class="product-object p-3 mt-5">
@@ -27,8 +27,9 @@ let productContainer = document.getElementById("product-container");
 
 /* Se hace un fetch a la URL de la API. 
 101 corresponde a la categoría de autos */
-
-fetch(PRODUCTS_URL+"101.json")
+if(sessionStorage.getItem("pendingSearch") === "false")
+{
+  fetch(PRODUCTS_URL+"101.json")
 .then(response => response.json())
 .then(data => {
   let productArray = data.products;
@@ -40,8 +41,10 @@ fetch(PRODUCTS_URL+"101.json")
   for(let i=0; i<productArray.length; i++)
   {
     let currentProduct = productArray[i];
-    productContainer.innerHTML+=GetProductCard(currentProduct.image, currentProduct.name, currentProduct.description, currentProduct.soldCount)
+    productContainer.innerHTML+=GetProductCard(currentProduct.image, currentProduct.name, currentProduct.cost, currentProduct.description, currentProduct.soldCount)
   }
 }).catch(error => {
   console.error("Se ha producido un error: ")
 })
+}
+
