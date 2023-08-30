@@ -52,19 +52,19 @@ fetch(PRODUCTS_URL+"101.json")
     productContainer.innerHTML+=GetProductCard(currentProduct.image, currentProduct.name, currentProduct.cost, currentProduct.description, currentProduct.soldCount)
   }
 
-    let ordenDescendienteButton = document.getElementById("ordenDescendiente");
+    let ordenDescendienteButton = document.getElementById("sortDesc");
       ordenDescendienteButton.addEventListener("click", () => {
       productArray.sort((a, b) => b.cost - a.cost);
       updateProductContainer(productArray);
     });
 
-    let ordenAcendenteButton = document.getElementById("ordenAcendente");
+    let ordenAcendenteButton = document.getElementById("sortAsc");
       ordenAcendenteButton.addEventListener("click", () => {
       productArray.sort((a, b) => a.cost - b.cost);
       updateProductContainer(productArray);
     });
 
-    let ordenRelevanciaButton = document.getElementById("ordenRelevancia");
+    let ordenRelevanciaButton = document.getElementById("sortByCount");
       ordenRelevanciaButton.addEventListener("click", () => {
       productArray.sort((a, b) => a.soldCount - b.soldCount);
       updateProductContainer(productArray);
