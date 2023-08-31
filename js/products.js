@@ -1,7 +1,10 @@
 let minPrice = 0;
 let maxPrice = 99999;
 
-// Función para obtener la estructura HTML de un producto
+/* Esta funcion nos devuelve una cadena de texto representando la estructura html que representa un producto.
+Lo que devuele esta función es lo que escribiríamos dentro del contenedor para crear un elemento producto.
+La funcion toma como parametro los datos que se deben tomar de la API. */
+
 function GetProductCard(image, name, cost, description, soldCount) {
   return `
     <div class="product-object p-3 mt-5">
@@ -29,7 +32,6 @@ function showProducts() {
     .then(response => response.json())
     .then(data => {
       let productArray = data.products;
-      console.log(productArray.length);
       /* Se recorre cada elemendo del arreglo de productos, 
       se obtiene el elemento del producto con la funcion GetProductCard, 
       y se agrega el resultado al contenedor*/
