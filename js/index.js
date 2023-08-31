@@ -3,8 +3,8 @@ document.addEventListener("DOMContentLoaded", function(){
     {
         window.location = "login.html";
     }else{
-        const usuario = sessionStorage.getItem("loggedUser");
-        const nombreUsuario = usuario.split('@')[0]; 
+        const usuario = JSON.parse(sessionStorage.getItem("loggedUser"));
+        const nombreUsuario = usuario.username;
 
         const valorUsuario = document.getElementById("usuario-logeado");
         valorUsuario.textContent = nombreUsuario; 

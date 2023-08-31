@@ -54,7 +54,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
                 if(targetPassword === writedPassword)
                 {
                     window.location.href = "./index.html";
-                    sessionStorage.setItem("loggedUser", user.email);// modifique (No se veia en )
+                    sessionStorage.setItem("loggedUser", JSON.stringify(user));// modifique (No se veia en )
                 }else{
                     alert("Contraseña incorrecta");
                 }
