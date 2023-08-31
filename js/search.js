@@ -1,11 +1,13 @@
+let searchResults;
 const searchInput = document.getElementById('search-input');
 const resultsContainer = document.getElementById('product-container');
 
-window.addEventListener("load", e => {
+document.addEventListener("DOMContentLoaded", async function () {
     // Obtener parámetro de búsqueda de la url
     const urlParams = new URLSearchParams(window.location.search);
     const query = urlParams.get("q");
 
+    searchResults = await getSearchProducts();
     showProducts(query);
 })
 
@@ -16,7 +18,7 @@ async function getCategories()
     return datos;
 }
 
-async function getProducts(){
+async function getSearchProducts(){
     let categories= await getCategories();
     const products=[];
     
@@ -38,10 +40,9 @@ function filterProductsBySearch(array, query)
 
 async function showProducts(query)
 {
-    let products = await getProducts();
-    let results = filterProductsBySearch(products, query)
+    let filteredResults = filterProductsBySearch(searchResults, query)
     resultsContainer.innerHTML = "";
-    for(const result of results)
+    for(const result of filteredResults)
     {
         resultsContainer.innerHTML+=GetProductCard(result.image, result.name, result.cost, result.currency, result.description, result.soldCount)
     }
