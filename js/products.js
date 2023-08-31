@@ -23,13 +23,13 @@ function GetProductCard(image, name, cost, description, soldCount) {
 function showProducts() {
   productContainer.innerHTML = ""; // Limpiar los productos actuales en el contenedor
   
-  if(sessionStorage.getItem("pendingSearch") === "false")
+  if(true) // Más adelante cambiar por if(sessionStorage.getItem("pendingSearch") === "false")
   {
     fetch(PRODUCTS_URL+"101.json")
     .then(response => response.json())
     .then(data => {
       let productArray = data.products;
-      
+      console.log(productArray.length);
       /* Se recorre cada elemendo del arreglo de productos, 
       se obtiene el elemento del producto con la funcion GetProductCard, 
       y se agrega el resultado al contenedor*/
