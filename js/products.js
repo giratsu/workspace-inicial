@@ -19,7 +19,7 @@ function GetProductCard(image, name, cost, description, soldCount) {
   `;
 }
 
-// Función para mostrar productos en función del rango de precios
+// Función para mostrar productos
 function showProducts() {
   productContainer.innerHTML = ""; // Limpiar los productos actuales en el contenedor
   
@@ -46,7 +46,16 @@ function showProducts() {
   }
 }
 
-// Obtener el contenedor de productos
+/*function updateProductContainer(products) {
+  productContainer.innerHTML = "";
+ 
+  for (let i = 0; i < products.length; i++) {
+    let currentProduct = products[i];
+    productContainer.innerHTML += GetProductCard(currentProduct.image,currentProduct.name,currentProduct.cost,currentProduct.description,currentProduct.soldCount);
+  }
+ }*/
+
+/* Se obtiene el elemento que va a contener los productos. */
 let productContainer = document.getElementById("product-container");
 
 // Asociar evento al botón de filtrar por rango de precios

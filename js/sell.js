@@ -147,3 +147,14 @@ document.addEventListener("DOMContentLoaded", function(e){
         }
     });
 });
+
+if(sessionStorage.getItem("loggedUser") == null)
+    {
+        window.location = "login.html";
+    }else{
+        const usuario = sessionStorage.getItem("loggedUser");
+        const nombreUsuario = usuario.split('@')[0]; 
+
+        const valorUsuario = document.getElementById("usuario-logeado");
+        valorUsuario.textContent = nombreUsuario; 
+    }
