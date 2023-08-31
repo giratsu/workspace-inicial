@@ -40,7 +40,8 @@ document.addEventListener("DOMContentLoaded", ()=>{
         const loginPasswordInput = document.getElementById("login-password-input").value;
         
         let user = JSON.parse(localStorage.getItem("userdata"));
-        
+     
+
         if(user != null)
         {
             const writedEmail = loginEmailInput;
@@ -53,7 +54,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
                 if(targetPassword === writedPassword)
                 {
                     window.location.href = "./index.html";
-                    sessionStorage.setItem("loggedUser", user);
+                    sessionStorage.setItem("loggedUser", JSON.stringify(user));// modifique (No se veia en )
                 }else{
                     alert("Contraseña incorrecta");
                 }

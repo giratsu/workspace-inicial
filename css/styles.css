@@ -293,3 +293,13 @@ a.custom-card:hover {
   flex-grow: 1;
   justify-content: right;
 }
+
+ #usuario-logeado {
+  position: absolute;
+  top: 0;
+  right: 20px;
+  padding: 10px;
+  font-weight: bold;
+  color:rgb(215, 215, 215);
+} 
+/* Modificacion Nombre barra superior  */
