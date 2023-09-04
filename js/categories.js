@@ -52,6 +52,7 @@ function setCatID(id)
     localStorage.setItem("catID", id);
     window.location = "products.html";
 }
+
 function showCategoriesList(){
 
     let htmlContentToAppend = "";

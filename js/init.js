@@ -53,6 +53,9 @@ document.addEventListener("DOMContentLoaded", e => {
   ShowUsernameInNav();
 })
 
+/* Esta funcion nos devuelve una cadena de texto representando la estructura html que representa un producto.
+Lo que devuele esta función es lo que escribiríamos dentro del contenedor para crear un elemento producto.
+La funcion toma como parametro los datos que se deben tomar de la API. */
 function GetProductCard(image, name, precio, currency, description, soldCount)
 {
     result = `
