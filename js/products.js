@@ -6,12 +6,12 @@ Lo que devuele esta función es lo que escribiríamos dentro del contenedor para
 La funcion toma como parametro los datos que se deben tomar de la API. */
 
 /* Se obtienen los elementos del documento html */
-let rangeFilterPrice = document.getElementById("rangeFilterPrice");
-let clearRangeFilter = document.getElementById("clearRangeFilter");
-let productContainer = document.getElementById("product-container");
-let sortAsc = document.getElementById("sortAsc");
-let sortDesc = document.getElementById("sortDesc");
-let sortByCount = document.getElementById("sortByCount");
+const productContainer = document.getElementById("product-container");
+const rangeFilterPrice = document.getElementById("rangeFilterPrice");
+const clearRangeFilter = document.getElementById("clearRangeFilter");
+const sortAsc = document.getElementById("sortAsc");
+const sortDesc = document.getElementById("sortDesc");
+const sortByCount = document.getElementById("sortByCount");
 
 // variable que guarda todos los productos de la categoría
 let categoryProducts;
@@ -51,7 +51,6 @@ const ORDER_DESC_BY_COST = "2";
 const ORDER_BY_PROD_COUNT = "3";
 function sortProducts(criteria, array){
   let result = [];
-  console.log(array);
   if (criteria === ORDER_ASC_BY_COST)
   {
     result = array.sort(function(a, b) {
@@ -79,17 +78,18 @@ function sortProducts(criteria, array){
   return result;
 }
 
-// Asociar evento al botón de filtrar por rango de precios
 document.addEventListener("DOMContentLoaded", async function () {
   await getCategoryProducts();
   showCategoryProducts(ORDER_BY_PROD_COUNT);
-  
+});
+
+// Asociar evento al botón de filtrar por rango de precios
   rangeFilterPrice.addEventListener("click", function () {
     minPrice = parseFloat(document.getElementById("rangeFilterPriceMin").value);
     maxPrice = parseFloat(document.getElementById("rangeFilterPriceMax").value);
     showCategoryProducts(ORDER_BY_PROD_COUNT);
   });
-  
+
   // Asociar evento al botón de limpiar filtro de rango de precios
   clearRangeFilter.addEventListener("click", function () {
     document.getElementById("rangeFilterPriceMin").value = "";
@@ -102,11 +102,10 @@ document.addEventListener("DOMContentLoaded", async function () {
   // Asociar evento al los botones de orden
   sortAsc.addEventListener("click", function(){
     showCategoryProducts(ORDER_ASC_BY_COST);
-  })
+  });
   sortDesc.addEventListener("click", function(){
     showCategoryProducts(ORDER_DESC_BY_COST);
-  })
+  });
   sortByCount.addEventListener("click", function(){
     showCategoryProducts(ORDER_BY_PROD_COUNT);
-  })
-});
+  });
