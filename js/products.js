@@ -76,6 +76,9 @@ function sortProducts(criteria, array){
   return result;
 }
 
+// Cuando se carga el DOM. se ejecuta getCategoryProducts(). Que obtiene y guarda los productos en base a la categoría seleccionada.
+// Luego se muestran los productos en el orden por defecto, que es el orden por relevancia.
+// dato: la funcion que ejecuta el DOMContentLoaded debe ser asincrona.
 document.addEventListener("DOMContentLoaded", async function () {
   await getCategoryProducts();
   showCategoryProducts(ORDER_BY_PROD_COUNT);

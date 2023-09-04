@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", function(){
         window.location = "login.html";
     }
     
-    // Se agrega un evento que se activa al hacer click en las categorías del index.
+    // Se agregan eventos de click a las categorías del index.
     // Al hacer click se guarda la variable "catID" en el almacenamiento local, con el valor de la categoría correspondiente.
     // luego de guardar el valor, Se redirige a la página de productos, donde se cargarán segun "catID".
     document.getElementById("autos").addEventListener("click", function() {
