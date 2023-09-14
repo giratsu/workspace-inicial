@@ -303,3 +303,13 @@ a.custom-card:hover {
   color:rgb(215,215,215);
 }
 /* Modificacion Nombre barra superior  */
+
+#productImageContainer
+{
+  overflow-x: auto;
+}
+
+#productImageContainer img
+{
+  height: 128px;
+}

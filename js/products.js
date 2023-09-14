@@ -33,12 +33,20 @@ async function showCategoryProducts(sortCrit = null) {
   se obtiene el elemento del producto con la funcion GetProductCard, 
   y se agrega el resultado al contenedor*/
   
+  /*NUEVO: antes de agregar el elemento al contenedor se le asigna un evento click, que guarda la id de ese producto en sessionStorage, y luego se carga product-info.html  */
+  
   for(let i=0; i<categoryProducts.length; i++)
   {
     let currentProduct = categoryProducts[i];
     if(( isNaN(minPrice) || currentProduct.cost >= minPrice) && (isNaN(maxPrice) || currentProduct.cost <= maxPrice))
     {
-      productContainer.innerHTML+=GetProductCard(currentProduct.image, currentProduct.name, currentProduct.cost, currentProduct.currency, currentProduct.description, currentProduct.soldCount)
+      let productElement = document.createElement("div");
+      productElement.innerHTML=GetProductCard(currentProduct.image, currentProduct.name, currentProduct.cost, currentProduct.currency, currentProduct.description, currentProduct.soldCount);
+      productElement.addEventListener("click", ev=>{
+        localStorage.setItem("prodID", currentProduct.id);
+        window.location = "product-info.html";
+      });
+      productContainer.appendChild(productElement);
     }
   }
 }
@@ -85,28 +93,28 @@ document.addEventListener("DOMContentLoaded", async function () {
 });
 
 // Asociar evento al botón de filtrar por rango de precios
-  rangeFilterPrice.addEventListener("click", function () {
-    minPrice = parseFloat(document.getElementById("rangeFilterPriceMin").value);
-    maxPrice = parseFloat(document.getElementById("rangeFilterPriceMax").value);
-    showCategoryProducts(ORDER_BY_PROD_COUNT);
-  });
+rangeFilterPrice.addEventListener("click", function () {
+  minPrice = parseFloat(document.getElementById("rangeFilterPriceMin").value);
+  maxPrice = parseFloat(document.getElementById("rangeFilterPriceMax").value);
+  showCategoryProducts(ORDER_BY_PROD_COUNT);
+});
 
-  // Asociar evento al botón de limpiar filtro de rango de precios
-  clearRangeFilter.addEventListener("click", function () {
-    document.getElementById("rangeFilterPriceMin").value = "";
-    document.getElementById("rangeFilterPriceMax").value = "";
-    minPrice = 0;
-    maxPrice = 9999999;
-    showCategoryProducts(ORDER_BY_PROD_COUNT);
-    });
-  
-  // Asociar evento al los botones de orden
-  sortAsc.addEventListener("click", function(){
-    showCategoryProducts(ORDER_ASC_BY_COST);
-  });
-  sortDesc.addEventListener("click", function(){
-    showCategoryProducts(ORDER_DESC_BY_COST);
-  });
-  sortByCount.addEventListener("click", function(){
-    showCategoryProducts(ORDER_BY_PROD_COUNT);
-  });
+// Asociar evento al botón de limpiar filtro de rango de precios
+clearRangeFilter.addEventListener("click", function () {
+  document.getElementById("rangeFilterPriceMin").value = "";
+  document.getElementById("rangeFilterPriceMax").value = "";
+  minPrice = 0;
+  maxPrice = 9999999;
+  showCategoryProducts(ORDER_BY_PROD_COUNT);
+  });
+
+// Asociar evento al los botones de orden
+sortAsc.addEventListener("click", function(){
+  showCategoryProducts(ORDER_ASC_BY_COST);
+});
+sortDesc.addEventListener("click", function(){
+  showCategoryProducts(ORDER_DESC_BY_COST);
+});
+sortByCount.addEventListener("click", function(){
+  showCategoryProducts(ORDER_BY_PROD_COUNT);
+});
