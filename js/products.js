@@ -55,6 +55,7 @@ async function showCategoryProducts(sortCrit = null) {
 const ORDER_ASC_BY_COST = "1";
 const ORDER_DESC_BY_COST = "2";
 const ORDER_BY_PROD_COUNT = "3";
+
 function sortProducts(criteria, array){
   let result = [];
   if (criteria === ORDER_ASC_BY_COST)

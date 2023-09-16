@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', async function() {
     productInfoDiv.innerHTML = productHTML(productData);
     
     // Mostrar comentarios
-    MostrarComentarios();
+    MostrarComentarios(productID);
     
     button.addEventListener("click", function () {
         const texto_comentario = document.getElementById("comentarioUser").value;
@@ -34,7 +34,9 @@ document.addEventListener('DOMContentLoaded', async function() {
         
         
         ShowComment(usuario, fecha, puntuacion, texto_comentario);
-        
+        // se vacía el input del comentario y se resetea el valor de puntuación
+        document.getElementById("comentarioUser").value = "";
+        document.getElementById("estrellas").value = 5;
     });
   });
 
@@ -80,11 +82,11 @@ function productImagesHTML(productData)
 
 /*----------------------------------------------------------------*/
 
-async function MostrarComentarios()
+async function MostrarComentarios(prodID)
 {
     const comentariosList = document.getElementById("boxComentarios"); /* ??? */
     comentariosList.innerHTML += `<h1>Comentarios de usuarios</h1>`;
-    let response = await fetch(PRODUCT_INFO_COMMENTS_URL + 50923+ EXT_TYPE);
+    let response = await fetch(PRODUCT_INFO_COMMENTS_URL + prodID + EXT_TYPE);
     let comentarios = await response.json();
 
     comentarios.forEach(comentario => {

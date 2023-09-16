@@ -17,26 +17,34 @@
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark p-1">
     <div class="container">
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav w-100 justify-content-between">
-          <li class="nav-item">
-            <a class="nav-link" href="index.html">Inicio</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="categories.html">Categorías</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="sell.html">Vender</a>
-          </li>
-          <li class="nav-item">
-          </li>
-        </ul>
-      </div>
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav w-100 justify-content-between">
+        <li class="nav-item">
+          <a class="nav-link active" href="index.html">Inicio</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="categories.html">Categorías</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="sell.html">Vender</a>
+        </li>
+        
+        <form id="search-form" action="search-results.html" class="d-flex mx-3">
+          <input name="q" type="seatch" class="form-control me-2" placeholder="Buscar..." aria-label="Buscar" id="search-input"/>
+          <button class="btn btn-primary" type="submit">Buscar</button>
+        </form>
+        
+        <li class="nav-item">
+          <span id="usuario-logeado"></span> 
+          <!-- Se creo este id -->
+        </li>
+      </ul>
     </div>
-  </nav>
+  </div>
+</nav>
 
   <main>
     <div id="product-info" class="container d-flex flex-column">
@@ -52,11 +60,11 @@
           <textarea required id="comentarioUser" cols="60" rows="3"></textarea>
           <p>Tu puntuación:</p>
           <select class="seleccionador" name="puntuar" id="estrellas">
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
             <option value="5">5</option>
+            <option value="4">4</option>
+            <option value="3">3</option>
+            <option value="2">2</option>
+            <option value="1">1</option>
           </select>
           <input type="button" id="enviar" value="Enviar">
         </form>
