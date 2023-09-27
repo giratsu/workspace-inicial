@@ -54,10 +54,16 @@ async function showProducts(query)
     for(const product of filteredResults)
     {
         // Se verifica si el precio del elemento está dentro de los valores del filtro.
+        // Si se cumple la condición se mostrará el producto, de lo contrario no.
         if(( isNaN(minPrice) || product.cost >= minPrice) && (isNaN(maxPrice) || product.cost <= maxPrice))
         {
-            // Si se cumple la condición se mostrará el producto, de lo contrario no.
-            resultsContainer.innerHTML+=GetProductCard(product.image, product.name, product.cost, product.currency, product.description, product.soldCount)
+            let productElement = document.createElement("div");
+            productElement.innerHTML = GetProductCard(product.image, product.name, product.cost, product.currency, product.description, product.soldCount)
+            productElement.addEventListener("click", ev => {
+                localStorage.setItem("prodID", product.id);
+                window.location = "product-info.html";
+            })
+            resultsContainer.appendChild(productElement);
         }
     }
 }
