@@ -7,6 +7,7 @@
   <title>eMercado - Todo lo que busques está aquí</title>
   
   <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/6364c06b65.js" crossorigin="anonymous"></script>
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
 </head>
@@ -36,9 +37,19 @@
         </form>
         
         <li class="nav-item">
-          <span id="usuario-logeado"></span> 
           <!-- Se creo este id -->
+          <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="UserMenu" data-bs-toggle="dropdown" aria-expanded="false">
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="UserMenu">
+              <li><a class="dropdown-item" href="cart.html">Mi Carrito</a></li>
+              <li><a class="dropdown-item" href="my-profile.html">Mi Perfil </a></li>
+              <li><a id="logout-button" class="dropdown-item" href="">Cerrar Sesion</a></li>
+              <button id="change-theme-button" class="btn rounded-fill"><i id="current-mode-icon" class="user-select-none fa-regular fa-sun"></i></button>
+            </ul>
+          </div>
         </li>
+
       </ul>
     </div>
   </div>
@@ -46,7 +57,7 @@
 <!------------------------------------------------------------------------>
 <main>
   <div class="jumbotron text-center"></div>
-  <div class="album py-5 bg-light">
+  <div class="album py-5">
     <div class="container">
       <div class="row">
         <div class="col-md-4">
@@ -81,7 +92,7 @@
         </div>
       </div>
       <div class="row">
-        <a class="btn btn-light btn-lg btn-block" href="categories.html">Y mucho más!</a>
+        <a class="btn btn-primary btn-lg btn-block" href="categories.html">Y mucho más!</a>
       </div>
     </div>
   </div>

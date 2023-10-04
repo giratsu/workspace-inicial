@@ -45,12 +45,60 @@ function ShowUsernameInNav()
   const usuario = JSON.parse(sessionStorage.getItem("loggedUser"));
   const nombreUsuario = usuario.username;
   
-  const valorUsuario = document.getElementById("usuario-logeado");
+  const valorUsuario = document.getElementById("UserMenu");
   valorUsuario.textContent = nombreUsuario; 
 }
 
 document.addEventListener("DOMContentLoaded", e => {
   ShowUsernameInNav();
+
+  // Funciones para cambiar de tema
+  const temaOscuro = () => {
+    document.querySelector("body").setAttribute("data-bs-theme", "dark");
+    document.querySelector("#current-mode-icon").setAttribute("class", "user-select-none fa-regular fa-moon");
+    console.log("oscuro");
+  }
+  
+  const temaClaro = () => {
+    document.querySelector("body").setAttribute("data-bs-theme", "light");
+    document.querySelector("#current-mode-icon").setAttribute("class", "user-select-none fa-regular fa-sun");
+    console.log("claro");
+  }
+  
+  if(localStorage.getItem("darkmode") === null)
+  {
+    localStorage.setItem("darkmode", JSON.stringify(false));
+  }
+
+  const cambiarTema = () => {
+    console.log("cambiando tema");
+    let valorActual = JSON.parse(localStorage.getItem("darkmode"));
+    valorActual = !valorActual;
+    localStorage.setItem("darkmode", JSON.stringify(valorActual));
+  }
+
+  const aplicarTema = () => {
+    console.log("aplicando tema");
+    JSON.parse(localStorage.getItem("darkmode")) === true?
+    temaOscuro() : temaClaro();
+  }
+
+  // se aplica el tema guardado al cargar la pagina
+  aplicarTema();
+
+  // botón para cambiar tema
+  const themeButton = document.getElementById("change-theme-button");
+  themeButton.addEventListener("click", ev=>{
+    cambiarTema();
+    aplicarTema();
+  });
+
+  // boton de cerrar sesión
+  document.getElementById("logout-button").addEventListener("click", ev=>{
+    ev.preventDefault();
+    sessionStorage.removeItem("loggedUser");
+    window.location = "login.html";
+  })
 })
 
 /* Esta funcion nos devuelve una cadena de texto representando la estructura html que representa un producto.

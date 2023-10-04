@@ -201,7 +201,6 @@ a.custom-card:hover {
   width: 70%;
   margin-inline: auto;
 }
-
 #login-container-left
 {
   display: flex;
@@ -255,7 +254,7 @@ a.custom-card:hover {
   display: flex;
   flex-direction: row;
 
-  background-color: white;
+  /* background-color: white; */
   transition: background-color 150ms;
 
   border-bottom: solid 2px rgb(223, 223, 223);
@@ -263,7 +262,7 @@ a.custom-card:hover {
 
 .product-object:hover
 {
-  background-color: rgb(215, 215, 215);
+  /* background-color: rgb(215, 215, 215); */
   transition: background-color 150ms;
 }
 
@@ -307,9 +306,26 @@ a.custom-card:hover {
 #productImageContainer
 {
   overflow-x: auto;
+  margin-right: 50%;
 }
 
-#productImageContainer img
+.carousel-item>img{
+  width: 100%;
+  object-fit: cover;
+}
+
+.carousel-control-prev-icon, .carousel-control-next-icon{
+  background-color: gray;
+  border-radius: 100%;
+  background-origin:content-box;
+  padding: 8%;
+}
+
+[data-bs-theme=dark]
 {
-  height: 128px;
+  transition: all linear 0.1s;
+}
+[data-bs-theme=light]
+{
+  transition: all linear 0.1s;
 }
