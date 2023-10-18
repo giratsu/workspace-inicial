@@ -68,7 +68,7 @@ h2
   background-color: #888f91;
   border: solid 2px transparent;
   color: #fff;
-
+  
   transition: border .2s ease, background-color .2s ease, color .2s ease; 
 }
 /* anima y cambia el color de los botones */
@@ -113,3 +113,44 @@ h2
 {
   margin-right: 8px;
 }
+
+/*-------------------------------------------------------------------------*/
+
+@media (max-width: 720px) {
+  .welcome-section, .form-section {
+    padding: 30px;
+  }
+  
+  h2 {
+    font-size: 22px;
+  }
+  
+  p, input[type="email"], input[type="password"] {
+    font-size: 14px;
+  }
+
+  .main-container {
+    flex-direction: column;
+  }
+  
+  .main-container>* {
+    width: 100%;
+    padding: 20px;
+  }
+  
+  h2 {
+    font-size: 20px;
+  }
+
+  .welcome-section{
+    border-bottom-right-radius: 0px;
+    border-bottom-left-radius: 0px;
+    border-top-right-radius: 20px;
+  }
+
+  .form-section{
+    border-top-right-radius: 0px;
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 20px;
+  }
+}                                                                                            /* Estilos para móviles */
