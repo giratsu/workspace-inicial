@@ -13,111 +13,72 @@
 </head>
 
 <body>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark p-1">
-    <div class="container">
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav w-100 justify-content-between">
-        <li class="nav-item">
-          <a class="nav-link active" href="index.html">Inicio</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="categories.html">Categorías</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="sell.html">Vender</a>
-        </li>
-        
-        <form id="search-form" action="search-results.html" class="d-flex mx-3">
-          <input name="q" type="seatch" class="form-control me-2" placeholder="Buscar..." aria-label="Buscar" id="search-input"/>
-          <button class="btn btn-primary" type="submit">Buscar</button>
-        </form>
-        
-        <li class="nav-item">
-          <!-- Se creo este id -->
-          <div class="dropdown">
-            <button class="btn btn-secondary dropdown-toggle" type="button" id="UserMenu" data-bs-toggle="dropdown" aria-expanded="false">
-            </button>
-            <ul class="dropdown-menu" aria-labelledby="UserMenu">
-              <li><a class="dropdown-item" href="#">Mi Carrito</a></li>
-              <li><a class="dropdown-item" href="#">Mi Perfil </a></li>
-              <li><a class="dropdown-item" href="#">Cerrar Sesion</a></li>
-              <button id="change-theme-button" class="btn rounded-fill"><i id="current-mode-icon" class="user-select-none fa-regular fa-sun"></i></button>
-            </ul>
-          </div>
-        </li>
-
-      </ul>
+  <div id="navBar"></div>
+  
+  <main class="pb-5">
+    <div class="text-center p-4">
+      <h2>Productos</h2>
+      <p class="lead">Verás aquí todas los productos de la categoría.</p>
     </div>
-  </div>
-</nav>
-<main class="pb-5">
-  <div class="text-center p-4">
-    <h2>Productos</h2>
-    <p class="lead">Verás aquí todas los productos de la categoría.</p>
-  </div>
-  <div class="container">
-    <div class="row">
-      <div class="col text-end">
-        <div class="btn-group btn-group-toggle mb-4" data-bs-toggle="buttons">
-          <input type="radio" class="btn-check" name="options" id="sortAsc">
-          <label class="btn btn-light" for="sortAsc" title="Ordenar por precio ascendente"><i class="fas fa-arrow-down"></i> <i class="fas fa-dollar-sign"></i></label>
-          <input type="radio" class="btn-check" name="options" id="sortDesc">
-          <label class="btn btn-light" for="sortDesc" title="Ordenar por precio descendente"><i class="fas fa-arrow-up"></i> <i class="fas fa-dollar-sign"></i></label>
-          <input type="radio" class="btn-check" name="options" id="sortByCount">
-          <label class="btn btn-light" for="sortByCount" title="Ordenar por Relevancia"><i class="fas fa-sort-amount-down mr-1"></i></label>
+    <div class="container">
+      <div class="row">
+        <div class="col text-end">
+          <div class="btn-group btn-group-toggle mb-4" data-bs-toggle="buttons">
+            <input type="radio" class="btn-check" name="options" id="sortAsc">
+            <label class="btn btn-light" for="sortAsc" title="Ordenar por precio ascendente"><i class="fas fa-arrow-down"></i> <i class="fas fa-dollar-sign"></i></label>
+            <input type="radio" class="btn-check" name="options" id="sortDesc">
+            <label class="btn btn-light" for="sortDesc" title="Ordenar por precio descendente"><i class="fas fa-arrow-up"></i> <i class="fas fa-dollar-sign"></i></label>
+            <input type="radio" class="btn-check" name="options" id="sortByCount">
+            <label class="btn btn-light" for="sortByCount" title="Ordenar por Relevancia"><i class="fas fa-sort-amount-down mr-1"></i></label>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="row">
-      <div class="col-lg-6 offset-lg-6 col-md-12 mb-1 container">
-        <div class="row container p-0 m-0">
-          <div class="col">
-            <p class="font-weight-normal text-end my-2">Precio.</p>
-          </div>
-          <div class="col">
-            <input class="form-control" type="number" placeholder="min." id="rangeFilterPriceMin">
-          </div>
-          <div class="col">
-            <input class="form-control" type="number" placeholder="máx." id="rangeFilterPriceMax">
-          </div>
-          <div class="col-3 p-0">
-            <div class="btn-group" role="group">
-              <button class="btn btn-light btn-block" id="rangeFilterPrice">Filtrar</button>
-              <button class="btn btn-link btn-sm" id="clearRangeFilter">Limpiar</button>
+      <div class="row">
+        <div class="col-lg-6 offset-lg-6 col-md-12 mb-1 container">
+          <div class="row container p-0 m-0">
+            <div class="col-3 col-md-4 col-lg-3">
+              <p class="font-weight-normal text-end my-2">Precio.</p>
+            </div>
+            <div class="col-4 col-md-4 col-lg-3"> <!-- modificacion de clases -->
+              <input class="form-control" type="number" placeholder="min." id="rangeFilterPriceMin">
+            </div>
+            <div class="col-4 col-md-4 col-lg-3"> <!-- modificacion de clases -->
+              <input class="form-control" type="number" placeholder="máx." id="rangeFilterPriceMax">
+            </div>
+            <div class="col-12 col-md-4 col-lg-3"> <!-- modificacion de clases -->
+              <div class="btn-group" role="group">
+                <button class="btn btn-primary btn-block" id="rangeFilterPrice">Filtrar</button>
+                <button class="btn btn-secondary btn-sm" id="clearRangeFilter">Limpiar</button>
+              </div>
             </div>
           </div>
         </div>
+          </div>
+      <div class="row">
+        <div class="list-group" id="product-container">
+        </div>
       </div>
     </div>
-    <div class="row">
-      <div class="list-group" id="product-container">
-      </div>
+  </main>
+  <footer class="text-muted">
+    <div class="container">
+      <p class="float-end">
+        <a href="#">Volver arriba</a>
+      </p>
+      <p>Este sitio forma parte de <a href="https://jovenesaprogramar.edu.uy/" target="_blank">Jovenes a Programar</a></p>
+    </div>
+  </footer>
+  <div id="spinner-wrapper">
+    <div class="lds-ring">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
     </div>
   </div>
-</main>
-<footer class="text-muted">
-  <div class="container">
-    <p class="float-end">
-      <a href="#">Volver arriba</a>
-    </p>
-    <p>Este sitio forma parte de <a href="https://jovenesaprogramar.edu.uy/" target="_blank">Jovenes a Programar</a></p>
-  </div>
-</footer>
-<div id="spinner-wrapper">
-  <div class="lds-ring">
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-  </div>
-</div>
-<script src="js/bootstrap.bundle.min.js"></script>
-<script src="js/init.js"></script>
-<script src="js/products.js"></script>
+  <script src="js/bootstrap.bundle.min.js"></script>
+  <script src="js/init.js"></script>
+  <script src="js/products.js"></script>
 </body>
 
 </html>

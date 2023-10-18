@@ -12,6 +12,13 @@ document.addEventListener('DOMContentLoaded', async function() {
     
     // Rellena el contenido con la información del producto
     productInfoDiv.innerHTML = productHTML(productData);
+    // asignar evento al boton de comprar
+    let buyButton = document.getElementById("buy-button");
+    buyButton.addEventListener("click", ev =>{
+        let currentCart = JSON.parse(localStorage.getItem("cart")) || [];
+        currentCart.push(productData);
+        localStorage.setItem("cart", JSON.stringify(currentCart));
+    })
     
     // Mostrar comentarios
     MostrarComentarios(productID);
@@ -28,11 +35,11 @@ document.addEventListener('DOMContentLoaded', async function() {
         const hora = currentDate.getHours();
         const min = currentDate.getMinutes();
         const seg = currentDate.getSeconds();
-    
+        
         const jsonUsuario = localStorage.getItem("userdata");
         const objetoUsuario = JSON.parse(jsonUsuario);
         const usuario = objetoUsuario.username;
-
+        
         const fecha = anio + "-" + mes + "-" + dia + " " + hora + ":" + min + ":" + seg;
         
         
@@ -48,8 +55,11 @@ document.addEventListener('DOMContentLoaded', async function() {
 function productHTML(productData)
 {
     return `
-    <div id="product-info" class="container d-flex flex-column">
+    <div id="product-info" class="container d-flex flex-column mt-5">
+    <div class="d-flex flex-direction-row justify-content-between">
     <h1>${productData.name}.</h1>
+    <button id="buy-button" class="btn btn-primary">Comprar</button>
+    </div>
     <hr>
     
     <h3>Precio</h3>
@@ -63,15 +73,16 @@ function productHTML(productData)
     
     <h3>Cantidad de vendidos</h3>
     <p>${productData.soldCount}</p>
-
+    
     <h3>Imágenes</h3>
-        <div id="productImageContainer" class="d-flex flex-column">
-            ${carouselHTML(productData.images)} 
-        </div>
+    <div id="productImageContainer" class="d-flex flex-column">
+    ${carouselHTML(productData.images)} 
     </div>
-
+    </div>
+    
     </div>
     `
+    
 }
 function carouselHTML(images) {
     let carouselItems = '';
@@ -81,38 +92,38 @@ function carouselHTML(images) {
         const image = images[i];
         carouselItems += `
         <div class="carousel-item ${i === 0 ? 'active' : ''}">
-            <img src="${image}" class="d-block" alt="Imagen del producto ${i + 1}">
+        <img src="${image}" class="d-block" alt="Imagen del producto ${i + 1}">
         </div>`;
         indicators += `
         <button type="button" data-bs-target="#productImageCarousel" data-bs-slide-to="${i}"${i === 0 ? ' class="active"' : ''} aria-label="Slide ${i + 1}"></button>`;
     }
-
+    
     return `
     <div id="productImageCarousel" class="carousel slide" data-bs-ride="carousel">
-        <div class="carousel-indicators">
-            ${indicators}
-        </div>
-        <div class="carousel-inner">
-            ${carouselItems}
-        </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#productImageCarousel" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#productImageCarousel" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-        </button>
-    </div>
-    `;
+    <div class="carousel-indicators">
+    ${indicators}
+    </div>
+    <div class="carousel-inner">
+    ${carouselItems}
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#productImageCarousel" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#productImageCarousel" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+    </button>
+     </div>
+        `;
 }
 function RelatedProductHTML(name, img)
 {
     return `
     <div class="related-product text-center">
-        <img src=${img} alt="" width="200px">
-        <h3 class="mt-4">${name}</h3>
-      </div>
+    <img src=${img} alt="" width="200px">
+    <h3 class="mt-4">${name}</h3>
+    </div>
     `
 }
 function MostrarRelacionados(data)
@@ -139,7 +150,7 @@ async function MostrarComentarios(prodID)
     comentariosList.innerHTML += `<h1>Comentarios de usuarios</h1>`;
     let response = await fetch(PRODUCT_INFO_COMMENTS_URL + prodID + EXT_TYPE);
     let comentarios = await response.json();
-
+    
     comentarios.forEach(comentario => {
         const puntuacion = comentario.score;
         const usuario = comentario.user;

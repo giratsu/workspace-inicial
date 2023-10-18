@@ -13,98 +13,64 @@
 </head>
 
 <body>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark p-1">
+  <div id="navBar"></div>
+  
+  <main>
+    <div id="product-info" class="container d-flex flex-column">
+    </div>
+    
+    <div id="boxComentarios" class="container d-flex flex-column mt-5">
+    </div>
+    
+    <div id="cajaDeComentarios" class="container">
+      <form>
+        <h3>Comentar</h3>
+        <div class="form-group mt-3">
+          <label for="comentarioUser">Tu opinión:</label>
+          <textarea required class="form-control" id="comentarioUser" rows="3" cols="60"></textarea>
+        </div>
+        <div class="form-group mt-3">
+          <label for="estrellas">Tu puntuación:</label>
+          <select class="form-control seleccionador" name="puntuar" id="estrellas">
+            <option value="5">5</option>
+            <option value="4">4</option>
+            <option value="3">3</option>
+            <option value="2">2</option>
+            <option value="1">1</option>
+          </select>
+        </div>
+        <input type="button" class="btn btn-primary mt-3" id="enviar" value="Enviar">
+      </form>
+      </div>
+    
     <div class="container">
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav w-100 justify-content-between">
-        <li class="nav-item">
-          <a class="nav-link active" href="index.html">Inicio</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="categories.html">Categorías</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="sell.html">Vender</a>
-        </li>
-        
-        <form id="search-form" action="search-results.html" class="d-flex mx-3">
-          <input name="q" type="seatch" class="form-control me-2" placeholder="Buscar..." aria-label="Buscar" id="search-input"/>
-          <button class="btn btn-primary" type="submit">Buscar</button>
-        </form>
-        
-        <li class="nav-item">
-          <!-- Se creo este id -->
-          <div class="dropdown">
-            <button class="btn btn-secondary dropdown-toggle" type="button" id="UserMenu" data-bs-toggle="dropdown" aria-expanded="false">
-            </button>
-            <ul class="dropdown-menu" aria-labelledby="UserMenu">
-              <li><a class="dropdown-item" href="#">Mi Carrito</a></li>
-              <li><a class="dropdown-item" href="#">Mi Perfil </a></li>
-              <li><a class="dropdown-item" href="#">Cerrar Sesion</a></li>
-              <button id="change-theme-button" class="btn rounded-fill"><i id="current-mode-icon" class="user-select-none fa-regular fa-sun"></i></button>
-            </ul>
-          </div>
-        </li>
-
-      </ul>
+      <h1 class="mb-5">Productos Relacionados</h1>
+      <div id="related-products-container" class="border p-3 d-flex flex-row flex-nowrap overflow-auto">
+      </div>
+    </div>
+      
+    </div>
+  </main>
+  
+  <footer class="text-muted">
+    <div class="container">
+      <p class="float-end">
+        <a href="#">Volver arriba</a>
+      </p>
+      <p>Este sitio forma parte de <a href="https://jovenesaprogramar.edu.uy/" target="_blank">Jovenes a Programar</a></p>
+    </div>
+  </footer>
+  <div id="spinner-wrapper">
+    <div class="lds-ring">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
     </div>
   </div>
-</nav>
-
-<main>
-  <div id="product-info" class="container d-flex flex-column">
-  </div>
-  
-  <div id="boxComentarios" class="container d-flex flex-column mt-5">
-  </div>
-  
-  <div id="cajaDeComentarios" class="container">
-    <form>
-      <h3>Comentar</h3>
-      <p>Tu opinión:</p>
-      <textarea required id="comentarioUser" cols="60" rows="3"></textarea>
-      <p>Tu puntuación:</p>
-      <select class="seleccionador" name="puntuar" id="estrellas">
-        <option value="5">5</option>
-        <option value="4">4</option>
-        <option value="3">3</option>
-        <option value="2">2</option>
-        <option value="1">1</option>
-      </select>
-      <input type="button" id="enviar" value="Enviar">
-    </form>
-      </div>
-  
-  <div class="container">
-    <h1 class="mb-5">Productos Relacionados</h1>
-    <div id="related-products-container" class="border p-3 d-flex flex-row overflow-auto overflow-x-auto">
-    </div>
-  </div>
-</main>
-
-<footer class="text-muted">
-  <div class="container">
-    <p class="float-end">
-      <a href="#">Volver arriba</a>
-    </p>
-    <p>Este sitio forma parte de <a href="https://jovenesaprogramar.edu.uy/" target="_blank">Jovenes a Programar</a></p>
-  </div>
-</footer>
-<div id="spinner-wrapper">
-  <div class="lds-ring">
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-  </div>
-</div>
-<script src="js/bootstrap.bundle.min.js"></script>
-<script src="js/init.js"></script>
-<script src="js/product-info.js"></script>
+  <script src="js/bootstrap.bundle.min.js"></script>
+  <script src="js/init.js"></script>
+  <script src="js/product-info.js"></script>
 </body>
 
 </html>
