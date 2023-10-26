@@ -62,6 +62,8 @@ function linea(product) {
     deleteButton.innerHTML = `<button class="btn btn-outline-danger"><i class="fa-solid fa-trash" style="color: #da3434;"></i></button>`;
     // se le agrega el evento de click
     deleteButton.addEventListener("click", ev=>{
+        // si el producto no tiene la id 50924, significa que es un producto agregado por el usuario y se encuentra guardado en el localStorage.
+        // por lo que se elimina de la siguiente forma:
         if(product.id != 50924)
         {
             // se obtiene el carrito del localStorage
@@ -69,15 +71,17 @@ function linea(product) {
             let localCart = JSON.parse(_localCart);
             // se obtiene el indice del elemento que se desea eliminar
             let deleteIndex = localCart.findIndex((p)=>{return p.id == product.id});
-            console.log(localCart);
-            console.log(product);
-            console.log("deleting at: "+deleteIndex);
             // se elimina ese producto del carrito
             localCart.splice(deleteIndex, 1);
             // se actualiza la variable del carrito del localStorage con su nuevo valor.
             localStorage.setItem("cart", JSON.stringify(localCart));
+            // se vuelven a cargar los elementos.
             showProducts();
         }else{
+        // de lo contrario, si el elemento tiene la id 50924, significa que es el producto cargado desde la API.
+        // este producto no se encuentra guardado en el localStorage por lo que se debe eliminar de forma diferente a los demás productos.
+        // se elimina quitando el primer elemento hijo del contenedor. (se asume que el producto 50924 siempre estará en el primer lugar)
+
             productoAPIeliminado = true;
             // se busca el contenedor HTML de los productos del carrito.
             const container = document.getElementById("cart-product-container");
