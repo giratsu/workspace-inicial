@@ -2,6 +2,7 @@ let productoAPIeliminado = false;
 
 document.addEventListener('DOMContentLoaded', async function () {
     await showProducts();
+    await metodoDePago();
 });
 
 async function showProducts()
@@ -122,4 +123,32 @@ function cambioDePrecio(idInput, producto) {
     const cantidad = cantidadNecesaria.value;
     
     importe.innerHTML = `${moneda} ${cantidad * precioUnitario}`;
+}
+
+async function metodoDePago () {
+    const divShow = document.getElementById('muestraFormaDePago');
+    const tarjetaDeCredito = document.getElementById('tarjetaDeCredito');
+    const transferenciaBancaria = document.getElementById('transferenciaBancaria');
+    const nroTarjeta = document.getElementById('nroTarjeta');
+    const codSegu = document.getElementById('codSegu');
+    const vencimiento = document.getElementById('vencimiento');
+    const nroCuenta = document.getElementById('nroCuenta');
+
+    tarjetaDeCredito.addEventListener('change', () => {
+      nroTarjeta.disabled = false;
+      codSegu.disabled = false;
+      vencimiento.disabled = false;
+      nroCuenta.disabled = true;
+      divShow.innerHTML = ``;
+      divShow.innerHTML += `Tarjetas de crédito`;
+    });
+  
+    transferenciaBancaria.addEventListener('change', () => {
+      nroTarjeta.disabled = true;
+      codSegu.disabled = true;
+      vencimiento.disabled = true;
+      nroCuenta.disabled = false;
+      divShow.innerHTML = ``;
+      divShow.innerHTML += `Transferencia bancaria`;
+    });
 }
