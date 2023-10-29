@@ -331,3 +331,33 @@ a.custom-card:hover {
     width: 100%;
   }
 }
+
+/* Notificacion "Has comprado con éxito" */
+.notification {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1050; 
+  transition: opacity 1s ease-in-out;
+}
+
+.notification.alert {
+  padding: 20px; /* Ancho de la notificación */
+}
+
+.notification.show {
+  display: block;
+  opacity: 1;
+  animation: slideIn 0.5s ease-in-out;
+}
+
+@keyframes slideIn {
+  0% {
+    top: -50%;
+  }
+  100% {
+    top: 50%;
+  }
+}
