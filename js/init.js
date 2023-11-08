@@ -46,7 +46,13 @@ function ShowUsernameInNav()
   const nombreUsuario = usuario.username;
   
   const valorUsuario = document.getElementById("UserMenu");
-  valorUsuario.textContent = nombreUsuario; 
+
+  if(nombreUsuario == null)
+  {
+    valorUsuario.textContent = "User"; 
+  }else{
+    valorUsuario.textContent = nombreUsuario; 
+  }
 }
 
 function LoadNav()

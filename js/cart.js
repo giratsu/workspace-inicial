@@ -76,7 +76,7 @@ function linea(product) {
             let localCart = JSON.parse(_localCart);
             // se obtiene el indice del elemento que se desea eliminar
             let deleteIndex = localCart.findIndex((p)=>{return p.id == product.id});
-            // se elimina ese producto del carrito
+            // se elimina ese producto del carrito en ese índice.
             localCart.splice(deleteIndex, 1);
             // se actualiza la variable del carrito del localStorage con su nuevo valor.
             localStorage.setItem("cart", JSON.stringify(localCart));
