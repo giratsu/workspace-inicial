@@ -43,7 +43,7 @@ let getJSONData = function(url){
 function ShowUsernameInNav()
 {
   const usuario = JSON.parse(sessionStorage.getItem("loggedUser"));
-  const nombreUsuario = usuario.username;
+  const nombreUsuario = usuario.nombre;
   
   const valorUsuario = document.getElementById("UserMenu");
 

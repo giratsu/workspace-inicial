@@ -78,7 +78,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
 
         if(validInfo)
         {
-            let user = createUser(null, null, null, emailInput, null, passwordInput, null, null, null);
+            let user = createUser(null, null, null, null, emailInput, null, passwordInput, null);
             saveUser(user);
             ShowLoginForm();
             alert("Cuenta creada exitosamente!");

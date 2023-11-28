@@ -358,6 +358,11 @@ a.custom-card:hover {
     top: -50%;
   }
   100% {
-    top: 50%;
-  }
+    top: 50%;
+  }
+}
+
+.profile-img
+{
+  object-fit: cover;
 }
